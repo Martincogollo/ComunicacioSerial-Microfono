@@ -1,0 +1,558 @@
+
+ComunicacionSerial-Microfono.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000038  00800100  00000366  000003fa  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000366  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000008  00800138  00800138  00000432  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000432  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000464  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000040  00000000  00000000  000004a4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000009e8  00000000  00000000  000004e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000772  00000000  00000000  00000ecc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000395  00000000  00000000  0000163e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000080  00000000  00000000  000019d4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000004a6  00000000  00000000  00001a54  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000001c2  00000000  00000000  00001efa  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000030  00000000  00000000  000020bc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e6 e6       	ldi	r30, 0x66	; 102
+  7c:	f3 e0       	ldi	r31, 0x03	; 3
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a8 33       	cpi	r26, 0x38	; 56
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	21 e0       	ldi	r18, 0x01	; 1
+  8c:	a8 e3       	ldi	r26, 0x38	; 56
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	a0 34       	cpi	r26, 0x40	; 64
+  96:	b2 07       	cpc	r27, r18
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 93 00 	call	0x126	; 0x126 <main>
+  9e:	0c 94 b1 01 	jmp	0x362	; 0x362 <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <analogRead>:
+	}
+}
+
+int analogRead(unsigned int numero_pin_analogo){
+	
+	ADMUX = 0x40 + numero_pin_analogo; //0x40 + 2 = 0x42
+  a6:	80 5c       	subi	r24, 0xC0	; 192
+  a8:	80 93 7c 00 	sts	0x007C, r24	; 0x80007c <__TEXT_REGION_LENGTH__+0x7f807c>
+	ADCSRA = 0b11000100; //Activa la conversión Analogo Digital y pone preescalado Fosc/16
+  ac:	84 ec       	ldi	r24, 0xC4	; 196
+  ae:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+	//DIDR0 = (1<<2);
+	while(ADCSRA&(1<<ADSC)); //Cuando la conversion termina el bit ADSC pasa a 0 y sale del ciclo
+  b2:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+  b6:	86 fd       	sbrc	r24, 6
+  b8:	fc cf       	rjmp	.-8      	; 0xb2 <analogRead+0xc>
+	ADCSRA&=~(1<<ADEN);//Desactivamos el conversor analogo digital
+  ba:	ea e7       	ldi	r30, 0x7A	; 122
+  bc:	f0 e0       	ldi	r31, 0x00	; 0
+  be:	80 81       	ld	r24, Z
+  c0:	8f 77       	andi	r24, 0x7F	; 127
+  c2:	80 83       	st	Z, r24
+	
+	return ADC;  //Devolvemos el valor convertido de analogo a digital.
+  c4:	80 91 78 00 	lds	r24, 0x0078	; 0x800078 <__TEXT_REGION_LENGTH__+0x7f8078>
+  c8:	90 91 79 00 	lds	r25, 0x0079	; 0x800079 <__TEXT_REGION_LENGTH__+0x7f8079>
+	
+}
+  cc:	08 95       	ret
+
+000000ce <Serial_USART>:
+
+
+void Serial_USART(unsigned int baud)
+{
+	/*Set baud rate */
+	UBRR0 = ((FOSC/16)/baud)-1;
+  ce:	9c 01       	movw	r18, r24
+  d0:	40 e0       	ldi	r20, 0x00	; 0
+  d2:	50 e0       	ldi	r21, 0x00	; 0
+  d4:	68 e4       	ldi	r22, 0x48	; 72
+  d6:	78 ee       	ldi	r23, 0xE8	; 232
+  d8:	81 e0       	ldi	r24, 0x01	; 1
+  da:	90 e0       	ldi	r25, 0x00	; 0
+  dc:	0e 94 5c 01 	call	0x2b8	; 0x2b8 <__divmodsi4>
+  e0:	21 50       	subi	r18, 0x01	; 1
+  e2:	31 09       	sbc	r19, r1
+  e4:	30 93 c5 00 	sts	0x00C5, r19	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7f80c5>
+  e8:	20 93 c4 00 	sts	0x00C4, r18	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7f80c4>
+	/*Enable receiver and transmitter */
+	UCSR0B |= (1<<RXEN0)|(1<<TXEN0);
+  ec:	e1 ec       	ldi	r30, 0xC1	; 193
+  ee:	f0 e0       	ldi	r31, 0x00	; 0
+  f0:	80 81       	ld	r24, Z
+  f2:	88 61       	ori	r24, 0x18	; 24
+  f4:	80 83       	st	Z, r24
+	/* Set frame format: 8 bits de datos 1 bit de parada */
+	UCSR0C=0b00000110;
+  f6:	86 e0       	ldi	r24, 0x06	; 6
+  f8:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7f80c2>
+  fc:	08 95       	ret
+
+000000fe <enviar_caracter>:
+}
+
+void enviar_caracter(unsigned char caracter){
+	while(!(UCSR0A&(1<<UDRE0)));    // mientras el registro UDR0 esté lleno espera
+  fe:	90 91 c0 00 	lds	r25, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7f80c0>
+ 102:	95 ff       	sbrs	r25, 5
+ 104:	fc cf       	rjmp	.-8      	; 0xfe <enviar_caracter>
+	UDR0 = caracter;            //cuando el el registro UDR0 está vacio se envia el caracter
+ 106:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+ 10a:	08 95       	ret
+
+0000010c <enviar_cadena>:
+	
+}
+void enviar_cadena(char* cadena){	 //cadena de caracteres de tipo char
+ 10c:	cf 93       	push	r28
+ 10e:	df 93       	push	r29
+ 110:	ec 01       	movw	r28, r24
+	while(*cadena !=0x00){				//mientras el último valor de la cadena sea diferente
+ 112:	03 c0       	rjmp	.+6      	; 0x11a <enviar_cadena+0xe>
+		//a el caracter nulo
+		enviar_caracter(*cadena);//transmite los caracteres de cadena
+ 114:	0e 94 7f 00 	call	0xfe	; 0xfe <enviar_caracter>
+		cadena++;//incrementa la ubicación de los caracteres en cadena
+ 118:	21 96       	adiw	r28, 0x01	; 1
+	while(!(UCSR0A&(1<<UDRE0)));    // mientras el registro UDR0 esté lleno espera
+	UDR0 = caracter;            //cuando el el registro UDR0 está vacio se envia el caracter
+	
+}
+void enviar_cadena(char* cadena){	 //cadena de caracteres de tipo char
+	while(*cadena !=0x00){				//mientras el último valor de la cadena sea diferente
+ 11a:	88 81       	ld	r24, Y
+ 11c:	81 11       	cpse	r24, r1
+ 11e:	fa cf       	rjmp	.-12     	; 0x114 <enviar_cadena+0x8>
+		//a el caracter nulo
+		enviar_caracter(*cadena);//transmite los caracteres de cadena
+		cadena++;//incrementa la ubicación de los caracteres en cadena
+		//para enviar el siguiente caracter de cadena
+	}
+}
+ 120:	df 91       	pop	r29
+ 122:	cf 91       	pop	r28
+ 124:	08 95       	ret
+
+00000126 <main>:
+char unidades_mic, decenas_mic, centenas_mic, mil_mic;
+char mil_luz,centenas_luz,decenas_luz,unidades_luz;
+
+
+int main(void)
+{
+ 126:	cf 93       	push	r28
+ 128:	df 93       	push	r29
+ 12a:	cd b7       	in	r28, 0x3d	; 61
+ 12c:	de b7       	in	r29, 0x3e	; 62
+ 12e:	2a 97       	sbiw	r28, 0x0a	; 10
+ 130:	0f b6       	in	r0, 0x3f	; 63
+ 132:	f8 94       	cli
+ 134:	de bf       	out	0x3e, r29	; 62
+ 136:	0f be       	out	0x3f, r0	; 63
+ 138:	cd bf       	out	0x3d, r28	; 61
+	int microfono=0;
+	int luz=0;
+	int contador=0;
+	Serial_USART(9600);
+ 13a:	80 e8       	ldi	r24, 0x80	; 128
+ 13c:	95 e2       	ldi	r25, 0x25	; 37
+ 13e:	0e 94 67 00 	call	0xce	; 0xce <Serial_USART>
+	DDRB = 0b00000011; //B0 y B1 como salidas
+ 142:	83 e0       	ldi	r24, 0x03	; 3
+ 144:	84 b9       	out	0x04, r24	; 4
+	while (1)
+	{
+		microfono = analogRead(4);
+ 146:	84 e0       	ldi	r24, 0x04	; 4
+ 148:	90 e0       	ldi	r25, 0x00	; 0
+ 14a:	0e 94 53 00 	call	0xa6	; 0xa6 <analogRead>
+ 14e:	8c 01       	movw	r16, r24
+		
+		//Convertir a carácter resultado microfono
+		unidades_mic = microfono%10 + 48;
+ 150:	ea e0       	ldi	r30, 0x0A	; 10
+ 152:	f0 e0       	ldi	r31, 0x00	; 0
+ 154:	bf 01       	movw	r22, r30
+ 156:	0e 94 48 01 	call	0x290	; 0x290 <__divmodhi4>
+ 15a:	20 e3       	ldi	r18, 0x30	; 48
+ 15c:	28 0f       	add	r18, r24
+ 15e:	20 93 3d 01 	sts	0x013D, r18	; 0x80013d <unidades_mic>
+		decenas_mic = (microfono/10)%10 + 48;
+ 162:	cb 01       	movw	r24, r22
+ 164:	bf 01       	movw	r22, r30
+ 166:	0e 94 48 01 	call	0x290	; 0x290 <__divmodhi4>
+ 16a:	30 e3       	ldi	r19, 0x30	; 48
+ 16c:	38 0f       	add	r19, r24
+ 16e:	30 93 38 01 	sts	0x0138, r19	; 0x800138 <__data_end>
+		centenas_mic = (microfono/100)%10 + 48;
+ 172:	c8 01       	movw	r24, r16
+ 174:	64 e6       	ldi	r22, 0x64	; 100
+ 176:	70 e0       	ldi	r23, 0x00	; 0
+ 178:	0e 94 48 01 	call	0x290	; 0x290 <__divmodhi4>
+ 17c:	cb 01       	movw	r24, r22
+ 17e:	bf 01       	movw	r22, r30
+ 180:	0e 94 48 01 	call	0x290	; 0x290 <__divmodhi4>
+ 184:	40 e3       	ldi	r20, 0x30	; 48
+ 186:	48 0f       	add	r20, r24
+ 188:	40 93 3c 01 	sts	0x013C, r20	; 0x80013c <centenas_mic>
+		mil_mic = (microfono/1000) + 48;
+ 18c:	c8 01       	movw	r24, r16
+ 18e:	68 ee       	ldi	r22, 0xE8	; 232
+ 190:	73 e0       	ldi	r23, 0x03	; 3
+ 192:	0e 94 48 01 	call	0x290	; 0x290 <__divmodhi4>
+ 196:	60 5d       	subi	r22, 0xD0	; 208
+ 198:	60 93 3b 01 	sts	0x013B, r22	; 0x80013b <mil_mic>
+		char cadena_texto_mic[5] = {mil_mic,centenas_mic,decenas_mic,unidades_mic};
+ 19c:	7e 01       	movw	r14, r28
+ 19e:	86 e0       	ldi	r24, 0x06	; 6
+ 1a0:	e8 0e       	add	r14, r24
+ 1a2:	f1 1c       	adc	r15, r1
+ 1a4:	85 e0       	ldi	r24, 0x05	; 5
+ 1a6:	f7 01       	movw	r30, r14
+ 1a8:	11 92       	st	Z+, r1
+ 1aa:	8a 95       	dec	r24
+ 1ac:	e9 f7       	brne	.-6      	; 0x1a8 <main+0x82>
+ 1ae:	6e 83       	std	Y+6, r22	; 0x06
+ 1b0:	4f 83       	std	Y+7, r20	; 0x07
+ 1b2:	38 87       	std	Y+8, r19	; 0x08
+ 1b4:	29 87       	std	Y+9, r18	; 0x09
+		enviar_cadena("La intensidad de ruido es: ");
+ 1b6:	80 e0       	ldi	r24, 0x00	; 0
+ 1b8:	91 e0       	ldi	r25, 0x01	; 1
+ 1ba:	0e 94 86 00 	call	0x10c	; 0x10c <enviar_cadena>
+		enviar_cadena(cadena_texto_mic);
+ 1be:	c7 01       	movw	r24, r14
+ 1c0:	0e 94 86 00 	call	0x10c	; 0x10c <enviar_cadena>
+		enviar_cadena("\r\n");
+ 1c4:	8c e1       	ldi	r24, 0x1C	; 28
+ 1c6:	91 e0       	ldi	r25, 0x01	; 1
+ 1c8:	0e 94 86 00 	call	0x10c	; 0x10c <enviar_cadena>
+		if(microfono<640){
+ 1cc:	00 38       	cpi	r16, 0x80	; 128
+ 1ce:	12 40       	sbci	r17, 0x02	; 2
+ 1d0:	6c f4       	brge	.+26     	; 0x1ec <main+0xc6>
+			PORTB ^= (1<<PORTB1); // O-exclusiva bit a bit
+ 1d2:	95 b1       	in	r25, 0x05	; 5
+ 1d4:	82 e0       	ldi	r24, 0x02	; 2
+ 1d6:	89 27       	eor	r24, r25
+ 1d8:	85 b9       	out	0x05, r24	; 5
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 1da:	2f e7       	ldi	r18, 0x7F	; 127
+ 1dc:	8a e1       	ldi	r24, 0x1A	; 26
+ 1de:	96 e0       	ldi	r25, 0x06	; 6
+ 1e0:	21 50       	subi	r18, 0x01	; 1
+ 1e2:	80 40       	sbci	r24, 0x00	; 0
+ 1e4:	90 40       	sbci	r25, 0x00	; 0
+ 1e6:	e1 f7       	brne	.-8      	; 0x1e0 <main+0xba>
+ 1e8:	00 c0       	rjmp	.+0      	; 0x1ea <main+0xc4>
+ 1ea:	00 00       	nop
+		}
+		
+		//_delay_ms(100);
+		
+		//Convertir a carácter resultado Luz
+		luz = analogRead(2);
+ 1ec:	82 e0       	ldi	r24, 0x02	; 2
+ 1ee:	90 e0       	ldi	r25, 0x00	; 0
+ 1f0:	0e 94 53 00 	call	0xa6	; 0xa6 <analogRead>
+ 1f4:	8c 01       	movw	r16, r24
+		unidades_luz = luz%10 + 48;
+ 1f6:	ea e0       	ldi	r30, 0x0A	; 10
+ 1f8:	f0 e0       	ldi	r31, 0x00	; 0
+ 1fa:	bf 01       	movw	r22, r30
+ 1fc:	0e 94 48 01 	call	0x290	; 0x290 <__divmodhi4>
+ 200:	20 e3       	ldi	r18, 0x30	; 48
+ 202:	28 0f       	add	r18, r24
+ 204:	20 93 3f 01 	sts	0x013F, r18	; 0x80013f <unidades_luz>
+		decenas_luz = (luz/10)%10 + 48;
+ 208:	cb 01       	movw	r24, r22
+ 20a:	bf 01       	movw	r22, r30
+ 20c:	0e 94 48 01 	call	0x290	; 0x290 <__divmodhi4>
+ 210:	30 e3       	ldi	r19, 0x30	; 48
+ 212:	38 0f       	add	r19, r24
+ 214:	30 93 39 01 	sts	0x0139, r19	; 0x800139 <decenas_luz>
+		centenas_luz = (luz/100)%10 + 48;
+ 218:	c8 01       	movw	r24, r16
+ 21a:	64 e6       	ldi	r22, 0x64	; 100
+ 21c:	70 e0       	ldi	r23, 0x00	; 0
+ 21e:	0e 94 48 01 	call	0x290	; 0x290 <__divmodhi4>
+ 222:	cb 01       	movw	r24, r22
+ 224:	bf 01       	movw	r22, r30
+ 226:	0e 94 48 01 	call	0x290	; 0x290 <__divmodhi4>
+ 22a:	40 e3       	ldi	r20, 0x30	; 48
+ 22c:	48 0f       	add	r20, r24
+ 22e:	40 93 3e 01 	sts	0x013E, r20	; 0x80013e <centenas_luz>
+		mil_luz = (luz/1000) + 48;
+ 232:	c8 01       	movw	r24, r16
+ 234:	68 ee       	ldi	r22, 0xE8	; 232
+ 236:	73 e0       	ldi	r23, 0x03	; 3
+ 238:	0e 94 48 01 	call	0x290	; 0x290 <__divmodhi4>
+ 23c:	60 5d       	subi	r22, 0xD0	; 208
+ 23e:	60 93 3a 01 	sts	0x013A, r22	; 0x80013a <mil_luz>
+		char cadena_texto_luz[5] = {mil_luz,centenas_luz,decenas_luz,unidades_luz};
+ 242:	fe 01       	movw	r30, r28
+ 244:	31 96       	adiw	r30, 0x01	; 1
+ 246:	7f 01       	movw	r14, r30
+ 248:	85 e0       	ldi	r24, 0x05	; 5
+ 24a:	11 92       	st	Z+, r1
+ 24c:	8a 95       	dec	r24
+ 24e:	e9 f7       	brne	.-6      	; 0x24a <main+0x124>
+ 250:	69 83       	std	Y+1, r22	; 0x01
+ 252:	4a 83       	std	Y+2, r20	; 0x02
+ 254:	3b 83       	std	Y+3, r19	; 0x03
+ 256:	2c 83       	std	Y+4, r18	; 0x04
+		enviar_cadena("La cantidad de luz es: ");
+ 258:	8f e1       	ldi	r24, 0x1F	; 31
+ 25a:	91 e0       	ldi	r25, 0x01	; 1
+ 25c:	0e 94 86 00 	call	0x10c	; 0x10c <enviar_cadena>
+		enviar_cadena(cadena_texto_luz);
+ 260:	c7 01       	movw	r24, r14
+ 262:	0e 94 86 00 	call	0x10c	; 0x10c <enviar_cadena>
+		enviar_cadena("\r\n"); // /t: Regulación Tab, /r: Return, /n: New Line
+ 266:	8c e1       	ldi	r24, 0x1C	; 28
+ 268:	91 e0       	ldi	r25, 0x01	; 1
+ 26a:	0e 94 86 00 	call	0x10c	; 0x10c <enviar_cadena>
+
+		if(luz <500){
+ 26e:	04 3f       	cpi	r16, 0xF4	; 244
+ 270:	11 40       	sbci	r17, 0x01	; 1
+ 272:	24 f4       	brge	.+8      	; 0x27c <main+0x156>
+			PORTB |= (1<<PORTB0);
+ 274:	85 b1       	in	r24, 0x05	; 5
+ 276:	81 60       	ori	r24, 0x01	; 1
+ 278:	85 b9       	out	0x05, r24	; 5
+ 27a:	03 c0       	rjmp	.+6      	; 0x282 <main+0x15c>
+		}
+		else{
+			PORTB &=~(1<<PORTB0);
+ 27c:	85 b1       	in	r24, 0x05	; 5
+ 27e:	8e 7f       	andi	r24, 0xFE	; 254
+ 280:	85 b9       	out	0x05, r24	; 5
+ 282:	8f e4       	ldi	r24, 0x4F	; 79
+ 284:	93 ec       	ldi	r25, 0xC3	; 195
+ 286:	01 97       	sbiw	r24, 0x01	; 1
+ 288:	f1 f7       	brne	.-4      	; 0x286 <main+0x160>
+ 28a:	00 c0       	rjmp	.+0      	; 0x28c <main+0x166>
+ 28c:	00 00       	nop
+		
+		
+		//enviar_caracter((unsigned char)(microfono/5));
+		//enviar_cadena("\r\n");
+		
+	}
+ 28e:	5b cf       	rjmp	.-330    	; 0x146 <main+0x20>
+
+00000290 <__divmodhi4>:
+ 290:	97 fb       	bst	r25, 7
+ 292:	07 2e       	mov	r0, r23
+ 294:	16 f4       	brtc	.+4      	; 0x29a <__divmodhi4+0xa>
+ 296:	00 94       	com	r0
+ 298:	07 d0       	rcall	.+14     	; 0x2a8 <__divmodhi4_neg1>
+ 29a:	77 fd       	sbrc	r23, 7
+ 29c:	09 d0       	rcall	.+18     	; 0x2b0 <__divmodhi4_neg2>
+ 29e:	0e 94 7b 01 	call	0x2f6	; 0x2f6 <__udivmodhi4>
+ 2a2:	07 fc       	sbrc	r0, 7
+ 2a4:	05 d0       	rcall	.+10     	; 0x2b0 <__divmodhi4_neg2>
+ 2a6:	3e f4       	brtc	.+14     	; 0x2b6 <__divmodhi4_exit>
+
+000002a8 <__divmodhi4_neg1>:
+ 2a8:	90 95       	com	r25
+ 2aa:	81 95       	neg	r24
+ 2ac:	9f 4f       	sbci	r25, 0xFF	; 255
+ 2ae:	08 95       	ret
+
+000002b0 <__divmodhi4_neg2>:
+ 2b0:	70 95       	com	r23
+ 2b2:	61 95       	neg	r22
+ 2b4:	7f 4f       	sbci	r23, 0xFF	; 255
+
+000002b6 <__divmodhi4_exit>:
+ 2b6:	08 95       	ret
+
+000002b8 <__divmodsi4>:
+ 2b8:	05 2e       	mov	r0, r21
+ 2ba:	97 fb       	bst	r25, 7
+ 2bc:	1e f4       	brtc	.+6      	; 0x2c4 <__divmodsi4+0xc>
+ 2be:	00 94       	com	r0
+ 2c0:	0e 94 73 01 	call	0x2e6	; 0x2e6 <__negsi2>
+ 2c4:	57 fd       	sbrc	r21, 7
+ 2c6:	07 d0       	rcall	.+14     	; 0x2d6 <__divmodsi4_neg2>
+ 2c8:	0e 94 8f 01 	call	0x31e	; 0x31e <__udivmodsi4>
+ 2cc:	07 fc       	sbrc	r0, 7
+ 2ce:	03 d0       	rcall	.+6      	; 0x2d6 <__divmodsi4_neg2>
+ 2d0:	4e f4       	brtc	.+18     	; 0x2e4 <__divmodsi4_exit>
+ 2d2:	0c 94 73 01 	jmp	0x2e6	; 0x2e6 <__negsi2>
+
+000002d6 <__divmodsi4_neg2>:
+ 2d6:	50 95       	com	r21
+ 2d8:	40 95       	com	r20
+ 2da:	30 95       	com	r19
+ 2dc:	21 95       	neg	r18
+ 2de:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2e0:	4f 4f       	sbci	r20, 0xFF	; 255
+ 2e2:	5f 4f       	sbci	r21, 0xFF	; 255
+
+000002e4 <__divmodsi4_exit>:
+ 2e4:	08 95       	ret
+
+000002e6 <__negsi2>:
+ 2e6:	90 95       	com	r25
+ 2e8:	80 95       	com	r24
+ 2ea:	70 95       	com	r23
+ 2ec:	61 95       	neg	r22
+ 2ee:	7f 4f       	sbci	r23, 0xFF	; 255
+ 2f0:	8f 4f       	sbci	r24, 0xFF	; 255
+ 2f2:	9f 4f       	sbci	r25, 0xFF	; 255
+ 2f4:	08 95       	ret
+
+000002f6 <__udivmodhi4>:
+ 2f6:	aa 1b       	sub	r26, r26
+ 2f8:	bb 1b       	sub	r27, r27
+ 2fa:	51 e1       	ldi	r21, 0x11	; 17
+ 2fc:	07 c0       	rjmp	.+14     	; 0x30c <__udivmodhi4_ep>
+
+000002fe <__udivmodhi4_loop>:
+ 2fe:	aa 1f       	adc	r26, r26
+ 300:	bb 1f       	adc	r27, r27
+ 302:	a6 17       	cp	r26, r22
+ 304:	b7 07       	cpc	r27, r23
+ 306:	10 f0       	brcs	.+4      	; 0x30c <__udivmodhi4_ep>
+ 308:	a6 1b       	sub	r26, r22
+ 30a:	b7 0b       	sbc	r27, r23
+
+0000030c <__udivmodhi4_ep>:
+ 30c:	88 1f       	adc	r24, r24
+ 30e:	99 1f       	adc	r25, r25
+ 310:	5a 95       	dec	r21
+ 312:	a9 f7       	brne	.-22     	; 0x2fe <__udivmodhi4_loop>
+ 314:	80 95       	com	r24
+ 316:	90 95       	com	r25
+ 318:	bc 01       	movw	r22, r24
+ 31a:	cd 01       	movw	r24, r26
+ 31c:	08 95       	ret
+
+0000031e <__udivmodsi4>:
+ 31e:	a1 e2       	ldi	r26, 0x21	; 33
+ 320:	1a 2e       	mov	r1, r26
+ 322:	aa 1b       	sub	r26, r26
+ 324:	bb 1b       	sub	r27, r27
+ 326:	fd 01       	movw	r30, r26
+ 328:	0d c0       	rjmp	.+26     	; 0x344 <__udivmodsi4_ep>
+
+0000032a <__udivmodsi4_loop>:
+ 32a:	aa 1f       	adc	r26, r26
+ 32c:	bb 1f       	adc	r27, r27
+ 32e:	ee 1f       	adc	r30, r30
+ 330:	ff 1f       	adc	r31, r31
+ 332:	a2 17       	cp	r26, r18
+ 334:	b3 07       	cpc	r27, r19
+ 336:	e4 07       	cpc	r30, r20
+ 338:	f5 07       	cpc	r31, r21
+ 33a:	20 f0       	brcs	.+8      	; 0x344 <__udivmodsi4_ep>
+ 33c:	a2 1b       	sub	r26, r18
+ 33e:	b3 0b       	sbc	r27, r19
+ 340:	e4 0b       	sbc	r30, r20
+ 342:	f5 0b       	sbc	r31, r21
+
+00000344 <__udivmodsi4_ep>:
+ 344:	66 1f       	adc	r22, r22
+ 346:	77 1f       	adc	r23, r23
+ 348:	88 1f       	adc	r24, r24
+ 34a:	99 1f       	adc	r25, r25
+ 34c:	1a 94       	dec	r1
+ 34e:	69 f7       	brne	.-38     	; 0x32a <__udivmodsi4_loop>
+ 350:	60 95       	com	r22
+ 352:	70 95       	com	r23
+ 354:	80 95       	com	r24
+ 356:	90 95       	com	r25
+ 358:	9b 01       	movw	r18, r22
+ 35a:	ac 01       	movw	r20, r24
+ 35c:	bd 01       	movw	r22, r26
+ 35e:	cf 01       	movw	r24, r30
+ 360:	08 95       	ret
+
+00000362 <_exit>:
+ 362:	f8 94       	cli
+
+00000364 <__stop_program>:
+ 364:	ff cf       	rjmp	.-2      	; 0x364 <__stop_program>
